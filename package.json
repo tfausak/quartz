@@ -1,0 +1,9 @@
+{
+    "devDependencies": {
+        "elm-tooling": "1.14.0"
+    },
+    "private": true,
+    "scripts": {
+        "postinstall": "elm-tooling install"
+    }
+}

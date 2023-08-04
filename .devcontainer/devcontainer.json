@@ -1,0 +1,17 @@
+{
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Elmtooling.elm-ls-vscode"
+            ],
+            "settings": {
+                "editor.formatOnSave": true
+            }
+        }
+    },
+    "dockerComposeFile": "compose.yaml",
+    "postCreateCommand": "yarn install",
+    "postStartCommand": "git config --global --add safe.directory \"$PWD\"",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspaces/lentil"
+}
