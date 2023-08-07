@@ -13,5 +13,5 @@
     "postCreateCommand": "yarn install",
     "postStartCommand": "git config --global --add safe.directory \"$PWD\"",
     "service": "devcontainer",
-    "workspaceFolder": "/workspaces/lentil"
+    "workspaceFolder": "/workspaces/quartz"
 }

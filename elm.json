@@ -1,15 +1,21 @@
 {
     "type": "package",
-    "name": "tfausak/lentil",
-    "summary": "TODO",
+    "name": "tfausak/quartz",
+    "summary": "Lenses and optics for Elm.",
     "license": "MIT",
     "version": "0.0.0",
     "exposed-modules": [
-        "Lentil"
+        "Quartz"
     ],
     "elm-version": "0.19.1 <= v < 0.20.0",
     "dependencies": {
-        "elm/core": "1.0.5 <= v < 2.0.0"
+        "elm/core": "1.0.5 <= v < 2.0.0",
+        "elm-community/array-extra": "2.6.0 <= v < 3.0.0",
+        "elm-community/list-extra": "8.7.0 <= v < 9.0.0",
+        "elm-community/maybe-extra": "5.3.0 <= v < 6.0.0",
+        "elm-community/result-extra": "2.4.0 <= v < 3.0.0"
     },
-    "test-dependencies": {}
+    "test-dependencies": {
+        "elm-explorations/test": "2.1.1 <= v < 3.0.0"
+    }
 }

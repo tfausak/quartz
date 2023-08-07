@@ -6,10 +6,10 @@
             "init": true,
             "user": "node",
             "volumes": [
-                "..:/workspaces/lentil",
+                "..:/workspaces/quartz",
                 "./volumes/elm:/home/node/.elm"
             ],
-            "working_dir": "/workspaces/lentil"
+            "working_dir": "/workspaces/quartz"
         }
     }
 }
