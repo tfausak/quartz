@@ -18,28 +18,25 @@ module Quartz exposing
 
 # Optics
 
-
-## Optic
-
 @docs Optic, SimpleOptic
 
 
-## Iso
+# Isos
 
 @docs Iso, SimpleIso, iso
 
 
-## Prism
+# Prisms
 
 @docs Prism, SimplePrism, prism
 
 
-## Lens
+# Lenss
 
 @docs Lens, SimpleLens, lens
 
 
-## Traversal
+# Traversals
 
 @docs Traversal, SimpleTraversal, traversal
 
@@ -49,35 +46,32 @@ module Quartz exposing
 @docs andThen, is, over, preview, review, set, toListOf, view
 
 
-# Basics
-
-
-## Array
+# Arrays
 
 @docs elements, array, idx
 
 
-## Dict
+# Dicts
 
 @docs pairs, key
 
 
-## List
+# Lists
 
 @docs list, nth
 
 
-## Maybe
+# Maybes
 
 @docs nothing, just
 
 
-## Result
+# Results
 
 @docs err, ok
 
 
-## Tuple
+# Tuples
 
 @docs swap, first, second
 
