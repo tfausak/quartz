@@ -1,6 +1,6 @@
 module Quartz exposing
     ( Optic, SimpleOptic
-    , Iso, SimpleIso, iso
+    , Iso, SimpleIso, iso, from
     , Prism, SimplePrism, prism
     , Lens, SimpleLens, lens
     , Traversal, SimpleTraversal, traversal
@@ -23,7 +23,7 @@ module Quartz exposing
 
 # Isos
 
-@docs Iso, SimpleIso, iso
+@docs Iso, SimpleIso, iso, from
 
 
 # Prisms
@@ -153,6 +153,18 @@ functions for both directions.
 iso : (s -> a) -> (b -> t) -> Iso p l s t a b
 iso =
     Quartz.Type.Iso.iso
+
+
+{-| Use this function to flip an `Iso` around.
+
+    stringIso : SimpleIso () () Name String
+    stringIso =
+        from nameIso
+
+-}
+from : Iso () () s t a b -> Iso () () b a t s
+from =
+    Quartz.Type.Iso.from
 
 
 {-| This is an `Optic` that can be used to represent a constructor. Note that
