@@ -1,10 +1,11 @@
 module Quartz.Type.Traversal exposing (SimpleTraversal, Traversal, traversal)
 
+import Quartz.Type.No as No
 import Quartz.Type.Optic as Optic
 
 
 type alias Traversal s t a b =
-    Optic.Optic Never Never s t a b
+    Optic.Optic No.No No.No s t a b
 
 
 type alias SimpleTraversal s a =
@@ -14,7 +15,7 @@ type alias SimpleTraversal s a =
 traversal : (s -> List a) -> ((a -> b) -> s -> t) -> Traversal s t a b
 traversal s2l f =
     { over = f
-    , review = never >> always
+    , review = No.no >> always
     , toListOf = s2l
-    , view = never >> always
+    , view = No.no >> always
     }

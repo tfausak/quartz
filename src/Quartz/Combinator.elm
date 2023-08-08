@@ -2,6 +2,7 @@ module Quartz.Combinator exposing (andThen, is, over, preview, review, set, toLi
 
 import Maybe.Extra
 import Quartz.Type.Optic as Optic
+import Quartz.Type.Yes as Yes
 
 
 andThen : Optic.Optic p l u v a b -> Optic.Optic p l s t u v -> Optic.Optic p l s t a b
@@ -28,9 +29,9 @@ preview optic =
     optic.toListOf >> List.head
 
 
-review : Optic.SimpleOptic () l s a -> a -> s
+review : Optic.SimpleOptic Yes.Yes l s a -> a -> s
 review optic =
-    optic.review ()
+    optic.review Yes.Yes
 
 
 set : Optic.Optic p l s t a b -> b -> s -> t
@@ -43,6 +44,6 @@ toListOf =
     .toListOf
 
 
-view : Optic.Optic p () s t a b -> s -> a
+view : Optic.Optic p Yes.Yes s t a b -> s -> a
 view optic =
-    optic.view ()
+    optic.view Yes.Yes
