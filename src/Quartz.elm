@@ -128,13 +128,15 @@ type alias SimpleOptic p l s a =
     Quartz.Type.Optic.SimpleOptic p l s a
 
 
-{-| Equivalent to `()`, the unit type.
+{-| Equivalent to `()`, the unit type. Used to signal that an `Optic` supports
+a certain feature.
 -}
 type alias Yes =
     Quartz.Type.Yes.Yes
 
 
-{-| Equivalent to `Never`, the empty type.
+{-| Equivalent to `Never`, the empty type. Like `Yes`, this is used to signal
+that an `Optic` does not support a certain feature.
 -}
 type alias No =
     Quartz.Type.No.No
