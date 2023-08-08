@@ -99,10 +99,10 @@ type.
 Don't be intimidated by all the type variables! Here's what they mean:
 
   - `p`: Does this optic support being used as a prism? This will either be
-    `()` for "yes" or `Never` for "no".
+    `()` for "yes" or `No`.
 
   - `l`: Does this optic support being used as a lens? Like `p`, this will
-    either be `()` for "yes" or `Never` for "no".
+    either be `()` for "yes" or `No`.
 
   - `s`: This is the input type. Often this is a "big" type like a record.
 
