@@ -1,4 +1,4 @@
-module Quartz.Type.Iso exposing (Iso, SimpleIso, from, iso)
+module Quartz.Type.Iso exposing (Iso, SimpleIso, iso)
 
 import Quartz.Type.Optic as Optic
 
@@ -17,13 +17,4 @@ iso s2a b2t =
     , review = always b2t
     , toListOf = s2a >> List.singleton
     , view = always s2a
-    }
-
-
-from : Iso () () s t a b -> Iso () () b a t s
-from x =
-    { over = \t2s -> x.review () >> t2s >> x.view ()
-    , review = x.view
-    , toListOf = x.review () >> List.singleton
-    , view = x.review
     }
