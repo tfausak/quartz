@@ -1,5 +1,5 @@
 module Quartz exposing
-    ( Optic, SimpleOptic
+    ( Optic, SimpleOptic, re
     , Iso, SimpleIso, iso
     , Prism, SimplePrism, prism
     , Lens, SimpleLens, lens
@@ -18,7 +18,7 @@ module Quartz exposing
 
 # Optics
 
-@docs Optic, SimpleOptic
+@docs Optic, SimpleOptic, re
 
 
 # Isos
@@ -124,6 +124,22 @@ type alias Optic p l s t a b =
 -}
 type alias SimpleOptic p l s a =
     Quartz.Type.Optic.SimpleOptic p l s a
+
+
+{-| Use this function to flip an `Optic` around.
+
+    stringToList : SimpleIso String (List Char)
+    stringToList =
+        iso String.toList String.fromList
+
+    listToString : SimpleIso (List Char) String
+    listToString =
+        re stringToList
+
+-}
+re : Optic () () s t a b -> Optic p l b a t s
+re =
+    Quartz.Type.Optic.re
 
 
 {-| This is an `Optic` that represents an isomorphism. Two types are isomorphic
