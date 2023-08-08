@@ -3,7 +3,7 @@
     "name": "tfausak/quartz",
     "summary": "Lenses and optics for Elm.",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "exposed-modules": [
         "Quartz"
     ],
