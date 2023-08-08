@@ -1,5 +1,5 @@
 module Quartz exposing
-    ( Optic, SimpleOptic, re
+    ( Optic, SimpleOptic, Yes, No, re
     , Iso, SimpleIso, iso
     , Prism, SimplePrism, prism
     , Lens, SimpleLens, lens
@@ -18,7 +18,7 @@ module Quartz exposing
 
 # Optics
 
-@docs Optic, SimpleOptic, re
+@docs Optic, SimpleOptic, Yes, No, re
 
 
 # Isos
@@ -88,9 +88,11 @@ import Quartz.Result
 import Quartz.Tuple
 import Quartz.Type.Iso
 import Quartz.Type.Lens
+import Quartz.Type.No
 import Quartz.Type.Optic
 import Quartz.Type.Prism
 import Quartz.Type.Traversal
+import Quartz.Type.Yes
 
 
 {-| This is the base optic type. All other optics are defined in terms of this
@@ -99,10 +101,10 @@ type.
 Don't be intimidated by all the type variables! Here's what they mean:
 
   - `p`: Does this optic support being used as a prism? This will either be
-    `()` for "yes" or `No`.
+    `Yes` or `No`.
 
   - `l`: Does this optic support being used as a lens? Like `p`, this will
-    either be `()` for "yes" or `No`.
+    either be `Yes` or `No`.
 
   - `s`: This is the input type. Often this is a "big" type like a record.
 
@@ -126,6 +128,18 @@ type alias SimpleOptic p l s a =
     Quartz.Type.Optic.SimpleOptic p l s a
 
 
+{-| Equivalent to `()`, the unit type.
+-}
+type alias Yes =
+    Quartz.Type.Yes.Yes
+
+
+{-| Equivalent to `Never`, the empty type.
+-}
+type alias No =
+    Quartz.Type.No.No
+
+
 {-| Use this function to flip an `Optic` around.
 
     stringToList : SimpleIso String (List Char)
@@ -137,7 +151,7 @@ type alias SimpleOptic p l s a =
         re stringToList
 
 -}
-re : Optic () () s t a b -> Optic p l b a t s
+re : Optic Yes Yes s t a b -> Optic p l b a t s
 re =
     Quartz.Type.Optic.re
 
@@ -324,7 +338,7 @@ preview =
     -- Just 1
 
 -}
-review : SimpleOptic () l s a -> a -> s
+review : SimpleOptic Yes l s a -> a -> s
 review =
     Quartz.Combinator.review
 
@@ -360,7 +374,7 @@ function that works with more types of `Optic`s.
     -- 1
 
 -}
-view : Optic p () s t a b -> s -> a
+view : Optic p Yes s t a b -> s -> a
 view =
     Quartz.Combinator.view
 
