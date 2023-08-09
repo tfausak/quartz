@@ -29,7 +29,7 @@ preview optic =
     optic.toListOf >> List.head
 
 
-review : Optic.SimpleOptic Yes.Yes l s a -> a -> s
+review : Optic.Optic Yes.Yes l s t a b -> b -> t
 review optic =
     optic.review Yes.Yes
 
