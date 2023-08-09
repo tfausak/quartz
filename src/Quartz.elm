@@ -340,7 +340,7 @@ preview =
     -- Just 1
 
 -}
-review : SimpleOptic Yes l s a -> a -> s
+review : Optic Yes l s t a b -> b -> t
 review =
     Quartz.Combinator.review
 
