@@ -31,7 +31,7 @@ module Quartz exposing
 @docs Prism, SimplePrism, prism
 
 
-# Lenss
+# Lenses
 
 @docs Lens, SimpleLens, lens
 
