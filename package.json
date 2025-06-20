@@ -3,7 +3,7 @@
         "elm-doc-preview": "6.0.1",
         "elm-review": "2.13.2",
         "elm-test": "0.19.1-revision15",
-        "elm-tooling": "1.15.1"
+        "elm-tooling": "1.16.0"
     },
     "private": true,
     "scripts": {
